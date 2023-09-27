@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(TiendaCampusContext))]
-    [Migration("20230925175243_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230927173137_Migration2")]
+    partial class Migration2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,6 +77,22 @@ namespace Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("pais", (string)null);
+                });
+
+            modelBuilder.Entity("Core.Entities.TipoDocumento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoDocumento", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.Ciudad", b =>

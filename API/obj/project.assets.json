@@ -1479,39 +1479,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\developer\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\APM02-042\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\NetCore\\tiendacampus2023\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "d:\\NetCore\\tiendacampus2023\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\developer\\.nuget\\packages\\",
-      "outputPath": "d:\\NetCore\\tiendacampus2023\\API\\obj\\",
+      "projectPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\APM02-042\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\APM02-042\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "d:\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "d:\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

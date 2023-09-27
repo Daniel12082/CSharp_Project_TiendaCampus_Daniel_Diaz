@@ -76,6 +76,22 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("pais", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Entities.TipoDocumento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoDocumento", (string)null);
+                });
+
             modelBuilder.Entity("Core.Entities.Ciudad", b =>
                 {
                     b.HasOne("Core.Entities.Departamento", "Departamentos")
