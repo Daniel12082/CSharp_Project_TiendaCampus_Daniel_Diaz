@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 using Core.Entities;
 namespace Core.Interface;
 
-    public interface IPais : IGenericRepository<Pais>
-    {
-        
-    }
+public interface IPais : IGenericRepository<Pais>
+{
+}
 

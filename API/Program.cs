@@ -1,3 +1,4 @@
+using API.Extension;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,12 +10,15 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.ConfigureCors();
+builder.Services.AddAplicationServices();
 
     builder.Services.AddDbContext<TiendaCampusContext>(options =>
     {
         string  connectionString = builder.Configuration.GetConnectionString("MySqlConex");
         options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
     });
+
 
 var app = builder.Build();
 
@@ -24,6 +28,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
