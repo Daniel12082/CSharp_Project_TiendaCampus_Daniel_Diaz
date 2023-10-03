@@ -7,9 +7,7 @@ namespace Core.Interface
 {
     public interface IUnitOfWork
     {
-        ICiudad Ciudades {get;}
-        IDepartamento Departamentos {get;}
-        IPais Paises {get;}
+
         Task<int> SaveAsync();
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreRateLimit;
 using Core.Interface;
 using Infrastructure.UnitOfWork;
 
@@ -19,8 +20,27 @@ namespace API.Extension;
                 .WithOrigins("https://localhost:4200"); //WithHeaders("accept", "content-type", "origin", "x-custom-header");
             });
         });
+        public static void ConfigureRateLimiting(this IServiceCollection services)
+        {
+            services.AddMemoryCache();
+            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+            services.AddInMemoryRateLimiting();
+            services.Configure<IpRateLimitOptions>(options =>
+            {
+                options.GeneralRules = new List<RateLimitRule>
+                {
+                    new RateLimitRule
+                    {
+                        Endpoint = "*",
+                        Limit = 2,
+                        Period = "10s"
+                    },
+                };
+            });
+        }
         public static void AddAplicationServices(this IServiceCollection services)
         {
-            services.AddScoped<UnitOfWork>();
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
         }
     }
+    

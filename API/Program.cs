@@ -1,4 +1,6 @@
+using System.Reflection;
 using API.Extension;
+using AspNetCoreRateLimit;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,16 +14,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureCors();
 builder.Services.AddAplicationServices();
-
-    builder.Services.AddDbContext<TiendaCampusContext>(options =>
-    {
-        string  connectionString = builder.Configuration.GetConnectionString("MySqlConex");
-        options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-    });
-
-
+builder.Services.ConfigureRateLimiting();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddDbContext<TiendaCampusContext>(options =>
+{
+    string connectionString = builder.Configuration.GetConnectionString("MySqlConex");
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
+builder.Services.AddAplicationServices();
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -29,11 +30,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseCors("CorsPolicy");
-
+app.UseIpRateLimiting();
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

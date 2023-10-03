@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core.Entities
+namespace Core.Entities;
+public class Ciudad : BaseEntity
 {
-    public class Ciudad : BaseEntity
-    {
-        public string Nombre { get; set; }
-        public int IdDepartamentoFk { get; set; }
-        public  Departamento Departamentos { get; set; }
-    }
+    public string NombreCiudad { get; set; }
+    public int IdDepartamentoFk { get; set; }
+    public Departamento Departamentos { get; set; }
+    public ICollection<Cliente> Clientes { get; set; }
+    public ClienteDireccion ClienteDirecciones { get; set; }
 }
