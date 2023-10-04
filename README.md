@@ -1,7 +1,7 @@
 ---------------CREACION DE PROYECTO INCICIAL----------------------
 
 cd .\Documents\
-mkdir pruebita1
+mkdir grupo1
 cd pruebita1
 dotnet new sln
 dotnet new webapi -o API

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 namespace Core.Interface
 {
     public interface IUnitOfWork
-    {
-
+    {   
         Task<int> SaveAsync();
     }
 }

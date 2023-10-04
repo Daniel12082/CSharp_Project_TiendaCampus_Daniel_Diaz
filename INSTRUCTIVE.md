@@ -94,6 +94,21 @@ EN LA CARPETA CORE
 - A CADA CLASE ASIGNARLE LOS ATRIBUTOS Y HEREDEAR A LA ENTIDAD BASE
 - A CADA CLASE ASIGNARLE SI TIENE LLAVES FORANEAS O ATRIBUTOS HEREDADOS
 
+---------------------CREACION DE DBCONTEXT---------------------
+
+Public class (nombre proyecto)Context : DbContext
+{
+    public (nombre proyecto)Context(DbContextOptions<(nombre proyecto)Context> options) : base(options)
+    {
+    }
+    Public DbSet<(nombre de la entidad)> (nombre de la entidad) { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsAssembly(Assembly.GetExecutingAssembly());
+    }
+}
+
 ---------------------DOTNET----------------------------
 * TENER INSTALADO DOTNET
 
