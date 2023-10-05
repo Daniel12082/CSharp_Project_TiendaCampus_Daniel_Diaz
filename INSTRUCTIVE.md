@@ -52,7 +52,9 @@ EN API
 • Controllers
 • Extensions
 • Profiles
+
 -----------------CONEXION A MY SQL-------------------
+
 EN LA CARPETA API
 ENTRAR AL ARCHIVO APPSETTINGS.JSON
     "AllowedHosts": "*",
