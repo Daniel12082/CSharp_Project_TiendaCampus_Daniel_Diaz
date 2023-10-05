@@ -8,10 +8,10 @@ namespace Core.Entities;
 public class Cita : BaseEntity
 {
 [Required]
-        public DateTime FechaCita { get; set; }
+        public DateTime Fecha { get; set; }
 
         [Required]
-        public TimeSpan HoraCita { get; set; }
+        public TimeSpan Hora { get; set; }
 
         [Required]
         public int IdClienteFk { get; set; }

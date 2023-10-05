@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NEBrta0ArGdcCtjt0Ig1/cyco0gbveM/T7JhH0rfY0Dmawhk7tnWQKRhePdWNV3b3V0GmGCKslYGu5ubcoMiAg==",
+  "dgSpecHash": "r3nzbfiY9Ts/TL3VBDdYowuOBteLkmCz03/ur1WfgLaoitM3R+4GJ0JwbR5YMgNPDn5PrAclGvZXDgn9WPn5vw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\APM02-042\\.nuget\\packages\\aspnetcoreratelimit\\5.0.0\\aspnetcoreratelimit.5.0.0.nupkg.sha512",
     "C:\\Users\\APM02-042\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",

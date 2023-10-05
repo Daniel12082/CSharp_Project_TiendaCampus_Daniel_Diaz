@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Core.Entities;
 public class Servicio : BaseEntity
 {
-    public string NombreServicio { get; set; }
+    public string Nombre { get; set; }
 
     [Required]
-    public double PrecioServicio { get; set; }
+    public double Precio { get; set; }
     public ICollection<Cita> Citas { get; set; }
 }

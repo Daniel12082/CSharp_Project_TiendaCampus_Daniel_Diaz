@@ -8,17 +8,17 @@ namespace Core.Entities;
 public class Mascota : BaseEntity
 {
     [Required]
-        public string NombreMascota { get; set; }
+        public string Nombre { get; set; }
 
         [Required]
         public string Especie { get; set; }
 
         [Required]
         public int IdRazaFk { get; set; }
-        public Raza Razas { get; set; }
+        public Raza Raza { get; set; }
 
         [Required]
-        public DateTime FechaNacimientoMascota { get; set; }
+        public DateTime FechaNacimiento { get; set; }
 
         [Required]
         public int IdClienteFk { get; set; }

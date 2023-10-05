@@ -8,12 +8,12 @@ namespace Core.Entities;
 public class Cliente : BaseEntity //herencia
 {
     [Required] // Este campo es requerido
-    public string NombreCliente { get; set; }
+    public string Nombre { get; set; }
     [Required]
-    public string ApellidoCliente { get; set; }
+    public string Apellido { get; set; }
     [Required]
-    public string EmailCliente { get; set; }
-    public ClienteDireccion ClienteDirecciones { get; set; }
+    public string Email { get; set; }
+    public ClienteDireccion ClienteDireccion { get; set; }
     public ICollection<ClienteTelefono> ClienteTelefonos { get; set; }
     public ICollection<Mascota> Mascotas { get; set; }
     public ICollection<Cita> Citas { get; set; }

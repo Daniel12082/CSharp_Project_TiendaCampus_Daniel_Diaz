@@ -2,23 +2,27 @@ using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.Configuration;
-
-public class DepartamentoConfiguration : IEntityTypeConfiguration<Departamento>
+namespace Infrastructure.Data.Configuration
 {
-    public void Configure(EntityTypeBuilder<Departamento> builder)
+    public class DepartamentoConfiguration : IEntityTypeConfiguration<Departamento>
     {
-        builder.ToTable("departamento");
+        public void Configure(EntityTypeBuilder<Departamento> builder)
+        {
+            // Aquí puedes configurar las propiedades de la entidad Marca
+            // utilizando el objeto 'builder'.
+            builder.ToTable("Departamento");
 
-        builder.HasKey(e => e.Id);
-        builder.Property(e => e.Id);
+            builder.HasKey(e => e.Id);
+            builder.Property(e => e.Id);
 
-        builder.Property(p => p.Nombre)
-        .IsRequired()
-        .HasMaxLength(50);
+            builder.Property(p => p.Nombre)
+            .IsRequired()
+            .HasMaxLength(50);
 
-        builder.HasOne(p => p.Paises)
-        .WithMany(p => p.Departamentos)
-        .HasForeignKey(p => p.IdpaisFk);
+            builder.HasOne(p => p.Paises)
+            .WithMany(p => p.Departamentos)
+            .HasForeignKey(p => p.IdPaisFk);
+
+        }
     }
 }

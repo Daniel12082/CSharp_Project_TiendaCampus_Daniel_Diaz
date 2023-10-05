@@ -24,7 +24,7 @@ public class PaisController : BaseController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async  Task<ActionResult<IEnumerable<Pais>>> Get()
     {
-        var paises = await _unitOfWork.Paises.GetAllAsync();
+        var paises = await _unitOfWork.Pais.GetAllAsync();
         return Ok(paises);
     }
     [HttpGet("{id}")]
@@ -33,7 +33,7 @@ public class PaisController : BaseController
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<Pais>> Get(int id)
     {
-        var pais = await _unitOfWork.Paises.GetByIdAsync(id);
+        var pais = await _unitOfWork.Pais.GetByIdAsync(id);
         if (pais == null){
             return NotFound();
         }
@@ -43,7 +43,7 @@ public class PaisController : BaseController
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<Pais>> Post(Pais pais){
-        this._unitOfWork.Paises.Add(pais);
+        this._unitOfWork.Pais.Add(pais);
         await _unitOfWork.SaveAsync();
         if (pais == null)
         {
@@ -61,7 +61,7 @@ public class PaisController : BaseController
         if(pais == null)
             return NotFound();
         //var paises = _mapper.Map<Pais>(paisDto);
-        _unitOfWork.Paises.Update(pais);
+        _unitOfWork.Pais.Update(pais);
         await _unitOfWork.SaveAsync();
         return pais;
     }

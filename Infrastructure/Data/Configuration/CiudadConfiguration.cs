@@ -2,23 +2,26 @@ using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.Configuration;
-
-public class CiudadConfiguration : IEntityTypeConfiguration<Ciudad>
+namespace Infrastructure.Data.Configuration
 {
-    public void Configure(EntityTypeBuilder<Ciudad> builder)
+    public class CiudadConfiguration : IEntityTypeConfiguration<Ciudad>
     {
-        builder.ToTable("ciudad");
+        public void Configure(EntityTypeBuilder<Ciudad> builder)
+        {
+            // Aquí puedes configurar las propiedades de la entidad Marca
+            // utilizando el objeto 'builder'.
+            builder.ToTable("Ciudad");
 
-        builder.HasKey(e => e.Id);
-        builder.Property(e => e.Id);
+            builder.HasKey(e => e.Id);
+            builder.Property(e => e.Id);
 
-        builder.Property(p => p.Nombre)
-        .IsRequired()
-        .HasMaxLength(50);
+            builder.Property(p => p.Nombre)
+            .IsRequired()
+            .HasMaxLength(50);
 
-        builder.HasOne(p => p.Departamentos)
-        .WithMany(p => p.Ciudades)
-        .HasForeignKey(p => p.IdDepartamentoFk);
+            builder.HasOne(p => p.Departamentos)
+            .WithMany(p => p.Ciudades)
+            .HasForeignKey(p => p.IdDepartamentoFk);
+        }
     }
 }

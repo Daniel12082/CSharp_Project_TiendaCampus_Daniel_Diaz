@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj": {}
+    "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj": {
+    "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj",
+        "projectPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj",
         "packagesPath": "C:\\Users\\APM02-042\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\obj\\",
+        "outputPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\APM02-042\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -108,14 +108,14 @@
         }
       }
     },
-    "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj": {
+    "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\APM02-042\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\obj\\",
+        "outputPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\APM02-042\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -161,14 +161,14 @@
         }
       }
     },
-    "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\APM02-042\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\APM02-042\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -183,8 +183,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj": {
-                "projectPath": "c:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj"
+              "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\Core\\Core.csproj"
               }
             }
           }
