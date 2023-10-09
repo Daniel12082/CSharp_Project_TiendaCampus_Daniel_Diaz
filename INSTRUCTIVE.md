@@ -66,6 +66,7 @@ ENTRAR AL ARCHIVO APPSETTING.DEVELOPMENT.JSON
         "MySqlConex" : "server=localhost;user=root;password=123456;database=(nombre de la base de datos)"
     }
 ----------------CLASE DE CONTEXTO---------------------
+
 EN LA CARPETA DATA
 -CREAR UNA CLASE LLAMADA (nombre de la base de datos)Context
 -HEREDAR A DBCONTEXT
@@ -78,6 +79,7 @@ CREAR METODO DE CREACION DE MODELOS
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsAssembly(Assembly.GetExecutingAssembly());
     }
+    
 ----------INYECTAR LA CONEXION A LA BASE DE DATOS--------
 
 EN LA CARPETA API
