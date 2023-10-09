@@ -21,6 +21,7 @@ builder.Services.AddDbContext<TiendaCampusContext>(options =>
     string connectionString = builder.Configuration.GetConnectionString("MySqlConex");
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
+
 builder.Services.AddAplicationServices();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
