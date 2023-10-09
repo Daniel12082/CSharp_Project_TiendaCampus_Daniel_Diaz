@@ -13,6 +13,9 @@ namespace API.Profiles
         protected MappingProfiles()
         {
             CreateMap<Pais,PaisDto>().ReverseMap();
+            CreateMap<Departamento,DepartamentoDto>().ReverseMap();
+            CreateMap<Ciudad,CiudadDto>().ReverseMap();
+            
         }
     }
 }
