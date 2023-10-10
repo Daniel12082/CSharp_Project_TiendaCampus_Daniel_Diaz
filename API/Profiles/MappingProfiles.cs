@@ -10,12 +10,14 @@ namespace API.Profiles
 {
     public class MappingProfiles : Profile
     {
-        protected MappingProfiles()
+        public MappingProfiles()
         {
             CreateMap<Pais,PaisDto>().ReverseMap();
             CreateMap<Departamento,DepartamentoDto>().ReverseMap();
             CreateMap<Ciudad,CiudadDto>().ReverseMap();
-            
+            CreateMap<Cliente,ClienteDto>().ReverseMap();
+            CreateMap<Mascota,MascotaDto>().ReverseMap();
+            CreateMap<Raza,RazaDto>().ReverseMap();
         }
     }
 }

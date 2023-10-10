@@ -10,8 +10,8 @@ using Core.Interface;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers
-{
+namespace API.Controllers;
+
     public class DepartamentoController : BaseController
     {
         private readonly IUnitOfWork _UnitOfWork;
@@ -55,7 +55,7 @@ namespace API.Controllers
             if(departamento == null){
                 return BadRequest();
             }
-            return CreatedAtAction(nameof(Post), new { id = departamento.Id}, departamento);
+            return CreatedAtAction(nameof(Post), new { id = departamento.Id}, departamentoDto);
         }
 
         [HttpPut("{id}")]
@@ -92,4 +92,3 @@ namespace API.Controllers
             return NoContent();
         }
     }
-}

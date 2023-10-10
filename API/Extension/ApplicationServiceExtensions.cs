@@ -32,7 +32,7 @@ namespace API.Extension;
                     new RateLimitRule
                     {
                         Endpoint = "*",
-                        Limit = 2,
+                        Limit = 5,
                         Period = "10s"
                     },
                 };

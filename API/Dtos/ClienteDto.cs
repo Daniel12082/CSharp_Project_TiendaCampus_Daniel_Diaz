@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace API.Dtos
 {
-    public class DepartamentoDto
+    public class ClienteDto
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public int IdPaisFk { get; set; }
+        public string Apellidos { get; set; }
+        public string Email { get; set; }
     }
 }

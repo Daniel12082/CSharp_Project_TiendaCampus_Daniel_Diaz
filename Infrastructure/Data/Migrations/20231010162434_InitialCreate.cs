@@ -7,72 +7,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class Update1 : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_ciudad_departamento_IdDepartamentoFk",
-                table: "ciudad");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_departamento_pais_IdpaisFk",
-                table: "departamento");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_pais",
-                table: "pais");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_departamento",
-                table: "departamento");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_ciudad",
-                table: "ciudad");
-
-            migrationBuilder.RenameTable(
-                name: "pais",
-                newName: "Pais");
-
-            migrationBuilder.RenameTable(
-                name: "departamento",
-                newName: "Departamento");
-
-            migrationBuilder.RenameTable(
-                name: "ciudad",
-                newName: "Ciudad");
-
-            migrationBuilder.RenameColumn(
-                name: "IdpaisFk",
-                table: "Departamento",
-                newName: "IdPaisFk");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_departamento_IdpaisFk",
-                table: "Departamento",
-                newName: "IX_Departamento_IdPaisFk");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_ciudad_IdDepartamentoFk",
-                table: "Ciudad",
-                newName: "IX_Ciudad_IdDepartamentoFk");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Pais",
-                table: "Pais",
-                column: "Id");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Departamento",
-                table: "Departamento",
-                column: "Id");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Ciudad",
-                table: "Ciudad",
-                column: "Id");
+            migrationBuilder.AlterDatabase()
+                .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
                 name: "Cliente",
@@ -90,6 +31,21 @@ namespace Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cliente", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Pais",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Nombre = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pais", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -121,6 +77,155 @@ namespace Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Servicio", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "TipoDocumento",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Descripcion = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoDocumento", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "ClienteTelefono",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    IdClienteFk = table.Column<int>(type: "int", nullable: false),
+                    Numero = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClienteTelefono", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ClienteTelefono_Cliente_IdClienteFk",
+                        column: x => x.IdClienteFk,
+                        principalTable: "Cliente",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Departamento",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Nombre = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IdPaisFk = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Departamento", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Departamento_Pais_IdPaisFk",
+                        column: x => x.IdPaisFk,
+                        principalTable: "Pais",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Mascota",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Nombre = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Especie = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IdRazaFk = table.Column<int>(type: "int", nullable: false),
+                    FechaNacimiento = table.Column<DateTime>(type: "datetime", nullable: false),
+                    IdClienteFk = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Mascota", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Mascota_Cliente_IdClienteFk",
+                        column: x => x.IdClienteFk,
+                        principalTable: "Cliente",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Mascota_Raza_IdRazaFk",
+                        column: x => x.IdRazaFk,
+                        principalTable: "Raza",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Ciudad",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Nombre = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IdDepartamentoFk = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ciudad", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Ciudad_Departamento_IdDepartamentoFk",
+                        column: x => x.IdDepartamentoFk,
+                        principalTable: "Departamento",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Cita",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Fecha = table.Column<DateTime>(type: "date", nullable: false),
+                    Hora = table.Column<TimeSpan>(type: "time", nullable: false),
+                    IdClienteFk = table.Column<int>(type: "int", nullable: false),
+                    IdMascotaFk = table.Column<int>(type: "int", nullable: false),
+                    IdServicioFk = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cita", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cita_Cliente_IdClienteFk",
+                        column: x => x.IdClienteFk,
+                        principalTable: "Cliente",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Cita_Mascota_IdMascotaFk",
+                        column: x => x.IdMascotaFk,
+                        principalTable: "Mascota",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Cita_Servicio_IdServicioFk",
+                        column: x => x.IdServicioFk,
+                        principalTable: "Servicio",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -172,96 +277,6 @@ namespace Infrastructure.Data.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.CreateTable(
-                name: "ClienteTelefono",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    IdClienteFk = table.Column<int>(type: "int", nullable: false),
-                    Numero = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ClienteTelefono", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ClienteTelefono_Cliente_IdClienteFk",
-                        column: x => x.IdClienteFk,
-                        principalTable: "Cliente",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Mascota",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Nombre = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Especie = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    IdRazaFk = table.Column<int>(type: "int", nullable: false),
-                    FechaNacimiento = table.Column<DateTime>(type: "datetime", nullable: false),
-                    IdClienteFk = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Mascota", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Mascota_Cliente_IdClienteFk",
-                        column: x => x.IdClienteFk,
-                        principalTable: "Cliente",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Mascota_Raza_IdRazaFk",
-                        column: x => x.IdRazaFk,
-                        principalTable: "Raza",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Cita",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Fecha = table.Column<DateTime>(type: "date", nullable: false),
-                    Hora = table.Column<TimeSpan>(type: "time", nullable: false),
-                    IdClienteFk = table.Column<int>(type: "int", nullable: false),
-                    IdMascotaFk = table.Column<int>(type: "int", nullable: false),
-                    IdServicioFk = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cita", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Cita_Cliente_IdClienteFk",
-                        column: x => x.IdClienteFk,
-                        principalTable: "Cliente",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Cita_Mascota_IdMascotaFk",
-                        column: x => x.IdMascotaFk,
-                        principalTable: "Mascota",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Cita_Servicio_IdServicioFk",
-                        column: x => x.IdServicioFk,
-                        principalTable: "Servicio",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Cita_IdClienteFk",
                 table: "Cita",
@@ -276,6 +291,11 @@ namespace Infrastructure.Data.Migrations
                 name: "IX_Cita_IdServicioFk",
                 table: "Cita",
                 column: "IdServicioFk");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ciudad_IdDepartamentoFk",
+                table: "Ciudad",
+                column: "IdDepartamentoFk");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ClienteDireccion_IdCiudadFk",
@@ -295,6 +315,11 @@ namespace Infrastructure.Data.Migrations
                 column: "IdClienteFk");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Departamento_IdPaisFk",
+                table: "Departamento",
+                column: "IdPaisFk");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Mascota_IdClienteFk",
                 table: "Mascota",
                 column: "IdClienteFk");
@@ -303,35 +328,11 @@ namespace Infrastructure.Data.Migrations
                 name: "IX_Mascota_IdRazaFk",
                 table: "Mascota",
                 column: "IdRazaFk");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Ciudad_Departamento_IdDepartamentoFk",
-                table: "Ciudad",
-                column: "IdDepartamentoFk",
-                principalTable: "Departamento",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Departamento_Pais_IdPaisFk",
-                table: "Departamento",
-                column: "IdPaisFk",
-                principalTable: "Pais",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Ciudad_Departamento_IdDepartamentoFk",
-                table: "Ciudad");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Departamento_Pais_IdPaisFk",
-                table: "Departamento");
-
             migrationBuilder.DropTable(
                 name: "Cita");
 
@@ -342,10 +343,16 @@ namespace Infrastructure.Data.Migrations
                 name: "ClienteTelefono");
 
             migrationBuilder.DropTable(
+                name: "TipoDocumento");
+
+            migrationBuilder.DropTable(
                 name: "Mascota");
 
             migrationBuilder.DropTable(
                 name: "Servicio");
+
+            migrationBuilder.DropTable(
+                name: "Ciudad");
 
             migrationBuilder.DropTable(
                 name: "Cliente");
@@ -353,75 +360,11 @@ namespace Infrastructure.Data.Migrations
             migrationBuilder.DropTable(
                 name: "Raza");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Pais",
-                table: "Pais");
+            migrationBuilder.DropTable(
+                name: "Departamento");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Departamento",
-                table: "Departamento");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Ciudad",
-                table: "Ciudad");
-
-            migrationBuilder.RenameTable(
-                name: "Pais",
-                newName: "pais");
-
-            migrationBuilder.RenameTable(
-                name: "Departamento",
-                newName: "departamento");
-
-            migrationBuilder.RenameTable(
-                name: "Ciudad",
-                newName: "ciudad");
-
-            migrationBuilder.RenameColumn(
-                name: "IdPaisFk",
-                table: "departamento",
-                newName: "IdpaisFk");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Departamento_IdPaisFk",
-                table: "departamento",
-                newName: "IX_departamento_IdpaisFk");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Ciudad_IdDepartamentoFk",
-                table: "ciudad",
-                newName: "IX_ciudad_IdDepartamentoFk");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_pais",
-                table: "pais",
-                column: "Id");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_departamento",
-                table: "departamento",
-                column: "Id");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_ciudad",
-                table: "ciudad",
-                column: "Id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ciudad_departamento_IdDepartamentoFk",
-                table: "ciudad",
-                column: "IdDepartamentoFk",
-                principalTable: "departamento",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_departamento_pais_IdpaisFk",
-                table: "departamento",
-                column: "IdpaisFk",
-                principalTable: "pais",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+            migrationBuilder.DropTable(
+                name: "Pais");
         }
     }
 }
