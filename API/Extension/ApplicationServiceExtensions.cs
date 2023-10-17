@@ -6,8 +6,8 @@ using AspNetCoreRateLimit;
 using Core.Interface;
 using Infrastructure.UnitOfWork;
 
-namespace API.Extension;
-
+namespace API.Extension
+{
     public static class ApplicationServiceExtensions
     {
         public static void ConfigureCors(this IServiceCollection services)=>
@@ -43,4 +43,4 @@ namespace API.Extension;
             services.AddScoped<IUnitOfWork,UnitOfWork>();
         }
     }
-    
+}

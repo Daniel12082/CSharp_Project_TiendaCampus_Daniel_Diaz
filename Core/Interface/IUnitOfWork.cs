@@ -18,6 +18,5 @@ namespace Core.Interface;
         IRaza Raza { get; }
         IServicio Servicio { get; }
         ITipoDocumento TipoDocumento { get; }
-
         Task<int> SaveAsync();
     }

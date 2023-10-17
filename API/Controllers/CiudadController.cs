@@ -75,7 +75,9 @@ public class CiudadController : BaseController
         await _UnitOfWork.SaveAsync();
         return ciudad;
     }
-
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult> Delete(int id){
         var ciudad = await _UnitOfWork.Ciudad.GetByIdAsync(id);
         if (ciudad == null){
