@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "r3nzbfiY9Ts/TL3VBDdYowuOBteLkmCz03/ur1WfgLaoitM3R+4GJ0JwbR5YMgNPDn5PrAclGvZXDgn9WPn5vw==",
+  "dgSpecHash": "gyzOdM3XR9GoNV4uk/YSD0npbAGOX2+Sw+LtMUKM1XvCx0Qb0F4SrOcWqA3lFgj399GyU+UhWFZ/8KoXHjKe2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\APM02-042\\Documents\\NetCore\\tiendacampus2023\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\APM02-042\\Desktop\\Veterinaria\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\APM02-042\\.nuget\\packages\\aspnetcoreratelimit\\5.0.0\\aspnetcoreratelimit.5.0.0.nupkg.sha512",
     "C:\\Users\\APM02-042\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\APM02-042\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\APM02-042\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
     "C:\\Users\\APM02-042\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\APM02-042\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.10\\microsoft.aspnetcore.authentication.jwtbearer.7.0.10.nupkg.sha512",
     "C:\\Users\\APM02-042\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
